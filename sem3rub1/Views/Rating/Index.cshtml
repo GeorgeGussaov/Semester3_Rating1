@@ -1,0 +1,30 @@
+﻿@model List<Student>
+@{int cntr = 0;}
+<div class="col-9 text-center">
+			
+	<h2>Список Продуктов</h2>
+	<a href="/Product/Add">Добавить новый продукт</a>
+	<table width="500" class="table">
+		<tr>
+			<th>N</th>
+			<th>ФИО</th>
+			<th>Предмет</th>
+			<th>Текущие баллы</th>
+			<th>Баллы за рейтинг</th>
+		</tr>
+			@foreach(var student in Model)
+			{
+				<tr>
+					<td>@(cntr++)</td>
+					<td>@student.Name</td>
+					<td>@student.Subject</td>
+					<td>@student.CurrentPoint</td>
+					<td>@student.RatingPoint</td>
+					<td><a class="btn btn-primary" asp-controller="Rating" asp-action="Edit" asp-route-id="@student.Id">Редактировать</a></td>
+					<td>Удалить</td>
+				</tr>
+			}
+	</table>
+	<a class="btn btn-primary" asp-controller="Rating" asp-action="Edit" asp-route-id="@null">Добавить студента</a>
+		
+</div>

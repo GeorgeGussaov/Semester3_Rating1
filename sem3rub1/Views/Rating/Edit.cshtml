@@ -1,0 +1,42 @@
+﻿@model Student
+<form method="post">
+    <div class="text-danger font-weight-bold" asp-validation-summary="All"></div>
+    <div class="text-center">
+        <div>
+            <label asp-for="Name">ФИО</label>
+            <input asp-for="Name" type="text">
+            <span asp-validation-for="Name"></span>
+        </div>
+  
+        <br>
+        <div>
+            <label asp-for="Subject">Предмет</label>
+            <input asp-for="Subject" type="text">
+            <span asp-validation-for="Subject"></span>
+        </div>
+        <br>
+
+        <div>
+            <label asp-for="CurrentPoint">Текущие баллы</label>
+            <input asp-for="CurrentPoint" type="number">
+            <span asp-validation-for="CurrentPoint"></span>
+        </div>
+        <br>
+
+        <div>
+            <label asp-for="RatingPoint">Баллы за рейтинг</label>
+            <input asp-for="RatingPoint" type="number">
+            <span asp-validation-for="RatingPoint"></span>
+        </div>
+        <br>
+
+
+        @if (Model != null) {
+            <button type="submit" asp-controller="Rating" asp-action="Save" asp-route-id="@Model.Id">Редактировать</button>
+        }
+        else
+        {
+            <button type="submit" asp-controller="Rating" asp-action="Add">Добавить</button>
+        }
+    </div>
+</form>
