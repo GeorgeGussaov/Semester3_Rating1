@@ -47,7 +47,7 @@ namespace sem3rub1
 			{
 				endpoints.MapControllerRoute(
 					name: "default",
-					pattern: "{controller=Home}/{action=Index}/{id?}");
+					pattern: "{controller=Rating}/{action=Index}/{id?}");
 			});
 		}
 	}

@@ -30,9 +30,15 @@
         </div>
         <br>
 
+        
 
         @if (Model != null) {
-            <button type="submit" asp-controller="Rating" asp-action="Save" asp-route-id="@Model.Id">Редактировать</button>
+            <div class="invisible">
+                <input asp-for="Id" type="text">
+                <span asp-validation-for="Id"></span>
+            </div>
+            <br>
+            <button type="submit" asp-controller="Rating" asp-action="Save">Редактировать</button>
         }
         else
         {

@@ -2,8 +2,8 @@
 @{int cntr = 0;}
 <div class="col-9 text-center">
 			
-	<h2>Список Продуктов</h2>
-	<a href="/Product/Add">Добавить новый продукт</a>
+	<h2>Список Студентов</h2>
+	
 	<table width="500" class="table">
 		<tr>
 			<th>N</th>
@@ -11,6 +11,7 @@
 			<th>Предмет</th>
 			<th>Текущие баллы</th>
 			<th>Баллы за рейтинг</th>
+			<th>Стутус</th>
 		</tr>
 			@foreach(var student in Model)
 			{
@@ -20,8 +21,11 @@
 					<td>@student.Subject</td>
 					<td>@student.CurrentPoint</td>
 					<td>@student.RatingPoint</td>
+					<td><select>
+						<option value="Passed">Сдал</option>
+						<option value="Expelled">Отчислен</option>
+					</select></td>
 					<td><a class="btn btn-primary" asp-controller="Rating" asp-action="Edit" asp-route-id="@student.Id">Редактировать</a></td>
-					<td>Удалить</td>
 				</tr>
 			}
 	</table>

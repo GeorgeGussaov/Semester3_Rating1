@@ -31,11 +31,11 @@ namespace sem3rub1.Controllers
 			return View(student);
 		}
 		[HttpPost]
-		public IActionResult Save(Guid id,Student student)
+		public IActionResult Save(Student student)
 		{
 			if (ModelState.IsValid)
 			{
-				_studentsRepository.EditStudent(id, student.Name, student.Subject, student.CurrentPoint, student.RatingPoint);
+				_studentsRepository.EditStudent(student.Id, student.Name, student.Subject, student.CurrentPoint, student.RatingPoint);
 				return RedirectToAction("Index");
 			}
 			return View("Edit", student);

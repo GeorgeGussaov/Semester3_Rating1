@@ -5,7 +5,8 @@ namespace sem3rub1.Models
 {
 	public class Student
 	{
-		public Guid Id { get; }
+		[Required(ErrorMessage ="Errorr")]
+		public Guid Id {get; set;}
 		[Required(ErrorMessage ="Укажите ФИО")]
 		[StringLength(25, MinimumLength = 5, ErrorMessage = "Фио должно быть от 5 до 25 символов")]
 		public string Name { get; set; }
@@ -26,6 +27,8 @@ namespace sem3rub1.Models
 			RatingPoint = ratintPoint;
 			Id = Guid.NewGuid();
 		}
-		public Student() { Id = Guid.NewGuid(); }
+		public Student() {
+			Id = Guid.NewGuid();
+		}
 	}
 }
